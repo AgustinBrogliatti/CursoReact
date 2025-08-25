@@ -1,7 +1,11 @@
 export default function Navbar() {
     return (
-      <nav style={{ padding: "1rem", background: "#eee" }}>
-        <h2>Navbar</h2>
+      <nav className="container-fluid">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Usuarios</a></li>
+          <li><a href="#">Productos</a></li>
+        </ul>
       </nav>
     );
   }

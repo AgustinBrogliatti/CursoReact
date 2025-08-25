@@ -1,12 +1,14 @@
 import Navbar from "./Navbar";
+import CardUsuario from "./CardUsuario";
+import CardProducto from "./CardProducto";
 
-export default function Layout({ children }) {
+export default function Layout() {
   return (
-    <div>
+    <div className="container">
       <Navbar />
-      <div style={{ padding: "1rem" }}>
-        {children}
-      </div>
+      <h1>TP1 - Proyecto Inicial</h1>
+      <CardUsuario nombre="Agustín" email="agus@mail.com" />
+      <CardProducto nombre="Notebook" precio={1200} />
     </div>
   );
 }
