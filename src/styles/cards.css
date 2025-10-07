@@ -76,6 +76,11 @@
   border-top: 1px dashed #e0e0e0;
   font-size: 12px;
 }
+.grid-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .grid-title {
   font-size: 1.8rem;
@@ -110,4 +115,49 @@
 .card-actions .btn {
   text-decoration: none;
   display: inline-block;
+}
+
+.page-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.detail-cover {
+  width: 240px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.detail-title {
+  margin: 0 0 8px 0;
+}
+
+.detail-desc {
+  line-height: 1.5;
+}
+
+.detail-subtitle {
+  margin: 16px 0 8px 0;
+}
+
+.detail-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.detail-tag {
+  background: #eef;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: .9rem;
 }

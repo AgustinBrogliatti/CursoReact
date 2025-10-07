@@ -11,7 +11,7 @@ export default function SearchBar({
   function handleSubmit(e) {
     e.preventDefault()
     const term = q.trim()
-    onSearch(term || 'a')
+    onSearch(term)
   }
 
   return (

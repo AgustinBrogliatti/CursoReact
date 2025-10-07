@@ -25,49 +25,40 @@ export default function BookDetail() {
     return () => ac.abort()
   }, [workId])
 
-  if (loading) return <p style={{ padding: 24 }}>Cargando libro...</p>
-  if (error) return <p style={{ padding: 24 }}>No se pudo cargar el libro.</p>
+  if (loading) return <section className="grid-container"><p className="card-subtitle">Cargando libro...</p></section>
+  if (error) return <section className="grid-container"><p className="card-subtitle">No se pudo cargar el libro.</p></section>
   if (!book) return null
 
   const cover = book.covers?.[0] ? coverUrl(book.covers[0], 'L') : null
 
   return (
-    <section style={{ padding: 24 }}>
-      <Link className="btn" to="/libros" style={{ marginBottom: 16, display: 'inline-block' }}>
-        ← Volver
-      </Link>
+    <section className="grid-container">
+      <div className="page-actions">
+        <Link className="btn" to="/libros">← Volver</Link>
+        <Link className="btn" to={`/libros/${workId}/resenas`}>Ver reseñas</Link>
+      </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '240px 1fr', gap: 16 }}>
-        {cover && (
-          <img
-            src={cover}
-            alt={book.title}
-            style={{ width: 240, height: 360, objectFit: 'cover', borderRadius: 8 }}
-          />
-        )}
-        <div>
-          <h1 style={{ marginTop: 0 }}>{book.title}</h1>
-          {book.description && <p style={{ lineHeight: 1.5 }}>{book.description}</p>}
+      <div className="detail-grid">
+        {cover && <img className="detail-cover" src={cover} alt={book.title} />}
+        <div className="detail-info">
+          <h1 className="detail-title">{book.title}</h1>
+
+          {book.description && (
+            <p className="detail-desc">{book.description}</p>
+          )}
+
           {book.subjects?.length > 0 && (
             <>
-              <h3>Temas</h3>
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              <h3 className="detail-subtitle">Temas</h3>
+              <div className="detail-tags">
                 {book.subjects.slice(0, 12).map(s => (
-                  <span key={s} style={{
-                    background: '#eef',
-                    padding: '4px 8px',
-                    borderRadius: 8,
-                    fontSize: '.9rem'
-                  }}>
-                    {s}
-                  </span>
+                  <span key={s} className="detail-tag">{s}</span>
                 ))}
               </div>
             </>
           )}
         </div>
       </div>
-      <Link className="btn review" to={`/libros/${workId}/resenas`}>Ver reseñas</Link>
     </section>
   )
 }
