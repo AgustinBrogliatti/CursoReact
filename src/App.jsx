@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import Users from './pages/Users'
-import Products from './pages/Products'
-import './App.css'
+import Books from './pages/Books'
+import BookDetail from './pages/BookDetail'
+import Authors from './pages/Authors'
 
 export default function App() {
   return (
@@ -11,8 +11,9 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/usuarios" element={<Users />} />
-        <Route path="/productos" element={<Products />} />
+        <Route path="/libros" element={<Books />} />
+        <Route path="/libros/:workId" element={<BookDetail />} />
+        <Route path="/autores" element={<Authors />} />
       </Routes>
     </div>
   )

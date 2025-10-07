@@ -1,0 +1,39 @@
+.home {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.home-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.home-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-actions .btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: #3f51b5;
+  color: #fff;
+  text-decoration: none;
+}
+
+.home-actions .btn:hover {
+  background-color: #303f9f;
+}
