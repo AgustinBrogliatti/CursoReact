@@ -67,6 +67,7 @@ export default function BookDetail() {
           )}
         </div>
       </div>
+      <Link className="btn review" to={`/libros/${workId}/resenas`}>Ver reseñas</Link>
     </section>
   )
 }

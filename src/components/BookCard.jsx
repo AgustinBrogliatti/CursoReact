@@ -26,7 +26,7 @@ export default function BookCard({ workId, title, authorNames = [], coverId, yea
       </section>
 
       <div className="card-actions">
-        <Link className="btn" to={`/libros/${workId}`}>Ver detalles</Link>
+        <Link className="btn" to={`/libros/${workId}`}>Ver libro</Link>
       </div>
     </article>
   )
