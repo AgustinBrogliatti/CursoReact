@@ -36,11 +36,10 @@ export async function fetchBookByWorkId(workId) {
   }
 }
 
-export async function searchAuthors(q = 'a', page = 1) {
-  const url = `${BASE}/search/authors.json?q=${encodeURIComponent(q)}&page=${page}`
-  const res = await fetch(url)
+export async function searchAuthors(q = 'a', page = 1, { signal } = {}) {
+  const url = `${BASE}/search/authors.json?q=${encodeURIComponent(q || 'a')}&page=${page}`
+  const res = await fetch(url, { signal })
   if (!res.ok) throw new Error('Error buscando autores')
-    
   const json = await res.json()
   return json.docs.map(a => ({
     id: a.key?.replace('/authors/', ''),
