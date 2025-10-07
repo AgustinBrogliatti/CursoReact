@@ -123,6 +123,7 @@
   margin-top: 8px;
   padding-top: 8px;
   border-top: 1px dashed #e0e0e0;
+  font-size: 12px;
 }
 
 .card-footer {
@@ -132,4 +133,12 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.prod-img {
+  width: 50%;
+}
+
+.category {
+  margin-top: 10px;
 }

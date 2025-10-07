@@ -33,20 +33,20 @@ export default function Products() {
 
 
     return (
-        <section>
-            <h2>Productos</h2>
-            <div className="grid">
+        <section className='grid-container'>
+            <h2 className='grid-title'>Productos</h2>
+            <div className="cards-grid">
                 {products.map(p => (
                     <Card
                         key={p.id}
                         title={p.title}
                         subtitle={`$ ${p.price}`}
+                        more={p.description}
                         body={<>
-                            <img src={p.image} alt={p.title} className="thumb" />
-                            <p className="muted">{p.category}</p>
+                            <img src={p.image} alt={p.title} className="prod-img" />
+                            <p className="category">{p.category}</p>
                         </>}
                     >
-                        <p>{p.description}</p>
                     </Card>
                 ))}
             </div>
