@@ -9,23 +9,23 @@ export default function Authors() {
   const [authors, setAuthors] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [query, setQuery] = useState('Saer')
+  const [query, setQuery] = useState('a') // carga inicial
 
   useEffect(() => {
-    let mounted = true
+    const ac = new AbortController()
     ;(async () => {
       try {
         setLoading(true)
         setError(null)
-        const data = await searchAuthors(query || 'a', 1)
-        if (mounted) setAuthors(data.slice(0, 24))
+        const data = await searchAuthors(query || 'a', 1, { signal: ac.signal })
+        setAuthors(data.slice(0, 24))
       } catch (e) {
-        if (mounted) setError(e)
+        if (!ac.signal.aborted) setError(e)
       } finally {
-        if (mounted) setLoading(false)
+        if (!ac.signal.aborted) setLoading(false)
       }
     })()
-    return () => { mounted = false }
+    return () => ac.abort()
   }, [query])
 
   return (
@@ -34,8 +34,8 @@ export default function Authors() {
 
       <SearchBar
         initial={query}
-        onSearch={(q) => setQuery(q || 'a')}
-        placeholder="Buscar autores (p. ej., Borges)"
+        onSearch={(q) => setQuery(q || 'a')}   // SOLO al hacer click en "Buscar"
+        placeholder="Buscar autores (p. ej., Tolkien)"
       />
 
       {loading && <p className="loader-text">Cargando autores...</p>}
