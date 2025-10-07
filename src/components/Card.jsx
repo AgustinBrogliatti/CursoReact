@@ -1,28 +1,35 @@
 import { useState } from 'react'
 
-export default function Card({ title, subtitle, body, footer, children }) {
+export default function Card({ title, subtitle, body, more, footer, children }) {
   const [showDetails, setShowDetails] = useState(false)
 
   return (
-    <div className="card">
-      <div className="card-header">
-        <div>
-          <div className="card-title">{title}</div>
-          {subtitle && <div className='card-subtitle'>{subtitle}</div>}
+    <article className="card">
+      <header className="card-header">
+        <div className="card-header-text">
+          <h3 className="card-title">{title}</h3>
+          {subtitle && <p className="card-subtitle">{subtitle}</p>}
         </div>
-      </div>
-      
-      <div>
-        <p>{body}</p>
-        <p>{children}</p>
-      </div>
 
-      <div>
-        <button onClick={() => setShowDetails(s => !s)}>
-          {showDetails ? 'Ocultar detalles' : 'Ver detalles'}
-        </button>
-        {footer}
-      </div>
-    </div>
+        {typeof more !== 'undefined' && (
+          <div className="card-actions">
+            <button className="btn" onClick={() => setShowDetails(s => !s)}>
+              {showDetails ? 'Ocultar detalles' : 'Ver detalles'}
+            </button>
+          </div>
+        )}
+      </header>
+
+      <section className="card-body">
+        {body && <p>{body}</p>}
+        {children}
+      </section>
+
+      {showDetails && more && (
+        <section className="card-details">{more}</section>
+      )}
+
+      {footer && <footer className="card-footer">{footer}</footer>}
+    </article>
   )
 }
