@@ -32,3 +32,38 @@ npm install
 
 # 2) Ejecutar en modo desarrollo
 npm run dev
+
+## Listado de funcionalidades implementadas
+
+### Routing
+- `/` (Home)
+- `/libros` (listado de libros)
+- `/libros/:workId` (ruta dinámica de detalle)
+- `/libros/:workId/resenas` (ruta hija para reseñas)
+- `/autores` (listado con búsqueda)
+
+### Libros
+- Cards con portada, título, autores y año.
+- “Ver detalles” navega al detalle por `workId`.
+
+### Reseñas (crear/gestionar localmente)
+- Formulario (nombre + comentario).
+- Agregar reseña (crea un ítem con id y fecha).
+- Eliminar reseña.
+- Persistencia en `localStorage` por libro (`reviews:<workId>`).
+
+### Autores
+- Barra de búsqueda (dispara el fetch al presionar “Buscar”).
+- Comunicación hijo → padre: `SearchBar` → `onSearch(term)` → el padre ejecuta el GET.
+
+### Estados de red
+- `loading`, `error` y “sin resultados” en vistas con fetch.
+
+### Estilos
+- Se utilizo CSS y Css flexbox sin frameworks adicionales por su simplicidad.
+
+### Bonus
+- Ruta hija dedicada para reseñas (`/libros/:workId/resenas`)
+- Simulación de POST con estado + `localStorage`.
+- Componente `SearchBar` con comunicación hijo → padre.
+- Código organizado en `components/`, `pages/`, `services/` y `styles/`.
