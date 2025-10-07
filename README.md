@@ -1,12 +1,34 @@
-# React + Vite
+# App Catalogo de Libros en React - Agustin Brogliatti
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+La idea de esta app web en react es visualizar libros consumidos en una api externa, ademas se pueden crear revies de forma local, esto se hizo con la finalidad de simular un post a la api y mostrar como se puede crear un nuevo componente de forma dinamica en react. Tambien se aprovecho el uso de el state, props y comunicacion entre componentes. Se hicieron busquedas por query params :id, rutas variables y un search como bonus.
 
-Currently, two official plugins are available:
+## 📝 Breve descripción del proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Libros (Productos)**
+  - Grilla de libros.
+  - **Detalle dinámico**: `/libros/:workId`.
+  - **Reseñas en vista separada (ruta hija)**: `/libros/:workId/resenas`.
+  - Las reseñas se **guardan en `localStorage`** (simulan un POST a la api).
 
-## Expanding the ESLint configuration
+- **Autores**
+  - Listado con **barra de búsqueda**.
+  - El componente `SearchBar` (hijo) envía el término al padre con `onSearch`, y el padre realiza el **fetch** (comunicación hijo → padre).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**APIs usadas (solo GET, Open Library):**
+- `https://openlibrary.org/search.json?q=<query>&page=1`
+- `https://openlibrary.org/works/{workId}.json`
+- Portadas: `https://covers.openlibrary.org/b/id/{coverId}-M.jpg`
+- `https://openlibrary.org/search/authors.json?q=<query>&page=1`
+
+---
+
+## ▶️ Instrucciones para correrlo localmente
+
+**Requisitos:** Node.js 18+ y npm.
+
+```bash
+# 1) Instalar dependencias
+npm install
+
+# 2) Ejecutar en modo desarrollo
+npm run dev
