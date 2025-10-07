@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { fetchUsers } from '../api'
+import { fetchUsers } from '../services/api'
 import Card from '../components/Card'
 
 

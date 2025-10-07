@@ -4,25 +4,25 @@ export default function Card({ title, subtitle, body, footer, children }) {
   const [showDetails, setShowDetails] = useState(false)
 
   return (
-    <article>
-      <header>
-        <hgroup>
-          <h3>{title}</h3>
-          {subtitle && <p>{subtitle}</p>}
-        </hgroup>
-      </header>
+    <div className="card">
+      <div className="card-header">
+        <div>
+          <div className="card-title">{title}</div>
+          {subtitle && <div className='card-subtitle'>{subtitle}</div>}
+        </div>
+      </div>
       
       <div>
-        {body}
-        {children}
+        <p>{body}</p>
+        <p>{children}</p>
       </div>
 
-      <footer>
+      <div>
         <button onClick={() => setShowDetails(s => !s)}>
           {showDetails ? 'Ocultar detalles' : 'Ver detalles'}
         </button>
         {footer}
-      </footer>
-    </article>
+      </div>
+    </div>
   )
 }
