@@ -2,7 +2,7 @@
 
 La idea de esta app web en react es visualizar libros consumidos en una api externa, ademas se pueden crear revies de forma local, esto se hizo con la finalidad de simular un post a la api y mostrar como se puede crear un nuevo componente de forma dinamica en react. Tambien se aprovecho el uso de el state, props y comunicacion entre componentes. Se hicieron busquedas por query params :id, rutas variables y un search como bonus.
 
-## 📝 Breve descripción del proyecto
+## Descripción del proyecto
 
 - **Libros (Productos)**
   - Grilla de libros.
@@ -22,7 +22,7 @@ La idea de esta app web en react es visualizar libros consumidos en una api exte
 
 ---
 
-## ▶️ Instrucciones para correrlo localmente
+##  Instrucciones para correrlo localmente
 
 **Requisitos:** Node.js 18+ y npm.
 
@@ -32,6 +32,7 @@ npm install
 
 # 2) Ejecutar en modo desarrollo
 npm run dev
+```
 
 ## Listado de funcionalidades implementadas
 
@@ -46,7 +47,7 @@ npm run dev
 - Cards con portada, título, autores y año.
 - “Ver detalles” navega al detalle por `workId`.
 
-### Reseñas (crear/gestionar localmente)
+### Reseñas (crear localmente)
 - Formulario (nombre + comentario).
 - Agregar reseña (crea un ítem con id y fecha).
 - Eliminar reseña.
